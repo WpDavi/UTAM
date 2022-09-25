@@ -15,7 +15,7 @@ export default function Login() {
     const login = async ()=>{
         if(email != '' && senha != '') {
     
-          const req = await fetch('http://192.168.0.61:3000/auth/login', {
+          const req = await fetch('http://192.168.1.83:3000/auth/login', {
             method: 'POST',
             body: JSON.stringify({
               email: email,

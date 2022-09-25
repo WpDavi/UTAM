@@ -15,7 +15,7 @@ export default function Registration() {
     const registration = async()=>{       
         if (name != '' && email != '' && password != '') {
 
-            const req = await fetch('http://192.168.0.61:3000/auth/register', {
+            const req = await fetch('http://192.168.1.83:3000/auth/register', {
                 method: 'POST',
                 body: JSON.stringify({
                     name:name,
@@ -31,12 +31,13 @@ export default function Registration() {
             const json = await req.json();
 
             console.log(json.msg)
+            alert(json.msg)
            
                         
             
 
         } else {
-            alert('preencha os campso')
+            alert(' ospreencha campso')
             
             
         }

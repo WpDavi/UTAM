@@ -30,8 +30,9 @@ export default function Login() {
 
         
     
-          if (json.msg == 'Deu certo') {
-            navigation.navigate('MainTab')   
+          if (req.status == '200') {
+            navigation.navigate('MainTab')  
+            alert(req.status) 
            
            
           } else {

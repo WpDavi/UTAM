@@ -1,107 +1,98 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, View ,StyleSheet, SafeAreaView, ImageBackground, Image, TouchableOpacity } from "react-native";
-
+import { SafeAreaView } from "react-native";
+import styled from "styled-components";
 
 export default function PreLogin() {
-    
-    const navigation = useNavigation()
-    
+  const navigation = useNavigation();
 
-    return(
-        <ImageBackground style={styles.fundo}
-        source={require('../assets/fundo.png')}>
-            <View style={styles.containerimg}>
-                <Image style={styles.logomarca} source={require('../assets/logo.png')} />
-            </View>
-            
+  return (
+    <Container source={require("../assets/fundo.png")}>
+      <SafeAreaView>
+        <ContainerImg>
+          <Img source={require("../assets/logo.png")} />
+        </ContainerImg>
 
-            <View style={styles.conteinerinfo}>
-                <Text style={styles.txtdescrition}> U.T.A.M - Unidade Tática Airsoft Moc,
-                       criada com a finalidade da pratica
-                       de esporte fantasístico, que traz
-                       inúmeros benefícios para quem pratica.</Text>
+        <ContainerInfo>
+          <TxtDescription>
+            U.T.A.M - Unidade Tática Airsoft Moc, criada com a finalidade da
+            pratica de esporte fantasístico, que traz inúmeros benefícios para
+            quem pratica.
+          </TxtDescription>
 
-                <TouchableOpacity style={styles.button}
-                onPress={() => navigation.navigate('Login')}
-                >
-                    <Text style={styles.txtbutton}>Fazer Login</Text>
-                </TouchableOpacity>
+          <ContainerButton onPress={() => navigation.navigate("Login")}>
+            <Txtbutton>Fazer Login</Txtbutton>
+          </ContainerButton>
 
-                <TouchableOpacity style={styles.buttoncadastr}
-                onPress={() => navigation.navigate('Registration')}
-                >
-                    <Text style={styles.txtbuttoncadastro}> Não é cadastrado? </Text>
-                    <Text style={styles.txtbuttoncadastro2}>Cadastrar</Text>
-                </TouchableOpacity>
-
-            </View>
-
-        </ImageBackground>
-
-             
-    )
+          <ContainerRegister
+            onPress={() => navigation.navigate("Registration")}
+          >
+            <TxtButtonRegister> Não é cadastrado? </TxtButtonRegister>
+            <TxtButtonRegister2>Cadastrar</TxtButtonRegister2>
+          </ContainerRegister>
+        </ContainerInfo>
+      </SafeAreaView>
+    </Container>
+  );
 }
 
-const styles = StyleSheet.create({
-    fundo:{
-        flex: 1,
-        resizeMode: "cover",
-        alignItems: "center",
-       
-       
-    },
-    logomarca:{
-        width: 300,
-        height:300,
-    },
-    
-    containerimg:{
-        flex:1,
-        justifyContent:'center'
-    },
+const Container = styled.ImageBackground`
+  flex: 1;
+  align-items: center;
+`;
 
+const ContainerImg = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
 
-    conteinerinfo: {
-        flex:1,
-        width:'100%',
-        backgroundColor:'black',    
-        opacity: 0.5,
-        borderTopEndRadius: 50,
-        borderTopStartRadius: 50,  
-        alignItems:'center'     ,
-        justifyContent: 'space-around'
-    },
+const Img = styled.Image`
+  width: 300px;
+  height: 300px;
+`;
 
-    txtdescrition:{
-        color:'white',
-        marginLeft: 35,        
-        marginRight: 35,    
-        fontSize: 18,
-        textAlign:'center'               
-    },
-    button:{
-        backgroundColor: '#FFBF18',
-        borderRadius: 25
-    },
-    txtbutton:{
-        fontSize: 25,
-        color: '#142B09',
-        fontWeight:'bold',
-        margin: 10,
-        marginLeft:50,
-        marginRight: 50
-    },
-    buttoncadastr:{
-        flexDirection:'row'
-    },
-    txtbuttoncadastro: {
-        color: 'white'        
-    },
-    txtbuttoncadastro2:{
-        color: 'white',
-        fontWeight:'bold'
-    }
+const ContainerInfo = styled.View`
+  flex: 1;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  align-items: center;
+  justify-content: space-around;
+`;
 
+const TxtDescription = styled.Text`
+  color: white;
+  margin-left: 35px;
+  margin-right: 35px;
+  font-size: 18px;
+  text-align: center;
+`;
 
-})
+const ContainerButton = styled.TouchableOpacity`
+  background-color: #ffbf18;
+  border-radius: 25px;
+`;
+
+const Txtbutton = styled.Text`
+  font-size: 25px;
+  color: #142b09;
+  font-weight: bold;
+  margin: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+`;
+
+const ContainerRegister = styled.TouchableOpacity`
+  flex-direction: row;
+`;
+
+const TxtButtonRegister = styled.Text`
+  color: white;
+`;
+const TxtButtonRegister2 = styled.Text`
+  color: white;
+  font-weight: bold;
+`;

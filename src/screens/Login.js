@@ -15,7 +15,10 @@ export default function Login() {
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
 
-  const login = async () => {};
+  const login = async () => {
+    navigation.navigate("MainTab")
+
+  };
 
   return (
     <ImageBackground

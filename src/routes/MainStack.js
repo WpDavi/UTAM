@@ -2,7 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Login from "../screens/Login";
-import Registration from "../screens/Registration";
+import Registration from "../screens/Registration/Registration";
 import PreLogin from "../screens/PreLogin";
 
 import MainTab from "./MainTab";
